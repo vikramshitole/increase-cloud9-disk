@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Specify the desired volume size in GiB as a command line argument. If not specified, default to 20 GiB.
-SIZE=${1:-120}
+SIZE=${1:-20}
 
 # Get the ID of the environment host Amazon EC2 instance.
 INSTANCEID=$(curl http://169.254.169.254/latest/meta-data/instance-id 2> /dev/null)
@@ -39,9 +39,9 @@ if [[ -n ${SIZE//[0-9]/} ]]; then
   exit 1
 fi
 
-# Ensure the new size is superior or equal to 100 GB.
-if [ "$SIZE" -lt "100" ]; then
-  echo "The new size must be superior or equal to 100 GiB."
+# Ensure the new size is superior or equal to 20 GB.
+if [ "$SIZE" -lt "20" ]; then
+  echo "The new size must be superior or equal to 20 GiB."
   exit 1
 fi
 
